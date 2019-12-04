@@ -1,0 +1,62 @@
+﻿@model HotelManagement.Models.Payment
+
+@{
+    ViewData["Title"] = "Create";
+}
+    <script src="~/js/Payment.js"></script>
+<h1>Create</h1>
+
+<h4>Payment</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ClientId" class="control-label"></label>
+                <input asp-for="ClientId" class="form-control" />
+                <span asp-validation-for="ClientId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoomNumber" class="control-label"></label>
+                <input asp-for="RoomNumber" class="form-control" />
+                <span asp-validation-for="RoomNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoOfDays" class="control-label"></label>
+                <input asp-for="NoOfDays" class="form-control" onchange="add_number()" />
+                <span asp-validation-for="NoOfDays" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalAmount" class="control-label"></label>
+                <input asp-for="TotalAmount" class="form-control" onchange="add_number()" />
+                <span asp-validation-for="TotalAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label id="TotalAmount" class="control-label">Total Amount</label>
+                <input type="text" id="TextBoxTotalAmount" name="TextBoxTotalAmount" class="form-control">
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+
+    <script type="text/javascript">
+function add_number() {
+    debugger;
+    var first_number = parseInt(document.getElementById("NoOfDays").value);
+    var second_number = parseInt(document.getElementById("TotalAmount").value);
+    var result = first_number * second_number;
+
+    document.getElementById("TextBoxTotalAmount").value = result.toString();
+}
+
+    </script>
+</div>
+

@@ -1,0 +1,29 @@
+﻿ @model RoomDetailsViewModel
+@{
+    ViewData["Titel"] = "Rooms List";
+   
+}
+
+<h3>@ViewData["PageTitle"]</h3>
+
+<div class="row justify-content-center m-23">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.room.RoomNumebr</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <h4>Type : @Model.room.types</h4>
+                <h4>Phone Number : @Model.room.PhoneNumber</h4>
+                <h4>Is Reserved : @Model.room.Researved</h4>
+
+            </div>
+            <div class="card-footer text-center">
+                <a asp-controller="home" asp-action="index" class="btn btn-primary">Back</a>
+                <a asp-controller="home" asp-action="edit" asp-route-id="@Model.room.Id" class="btn btn-primary">Edit</a>
+                <a href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
